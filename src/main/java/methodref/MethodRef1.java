@@ -1,5 +1,6 @@
 package methodref;
 
+import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -31,6 +32,9 @@ public class MethodRef1 {
         Person person = new Person("LEE");
         Function<Integer, String> instanceMethod1 = person::introduceWithNumber;
         System.out.println("instanceMethod1: " + instanceMethod1.apply(1));
+
+        BiFunction<Person, Integer, String> instanceMethod2 = Person::introduceWithNumber;
+        System.out.println("instanceMethod2: " + instanceMethod2.apply(person, 2));
     }
 
     static int add(int a, int b) {
